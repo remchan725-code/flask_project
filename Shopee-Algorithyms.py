@@ -52,6 +52,7 @@ class Order:
             f"Tien goc : {self.subtotal} VND ",
             f"Thuc tra : {self.final_total} VND"
             )
+            
     def __len__(self):
         return sum (item["Quanity"] for item in self.items)
 order1 = Order()
@@ -59,11 +60,18 @@ order1.add_item("Quần Jean",300,2)
 order1.add_item("Áo phông",200,3)
 print(order1.items)
 
+order2 = Order()
+order2.add_item("Hoodie",350,3)
+order2.add_item("Áo ba lỗ",100,3)
+print(order1.items)
+
 coupon = Percent_Coupon(10,100)
-print("Subtotal:", order1.subtotal)
-print("Discount:", coupon.calculate_discount(order1.subtotal))
-order1.apply_coupon(coupon)
-print("Final total:", order1.final_total)
+coupon1 = Fixed_Coupon(80)
+
+print("Subtotal:", order2.subtotal)
+print("Discount:", coupon1.calculate_discount(order2.subtotal))
+order2.apply_coupon(coupon1)
+print("Final total:", order2.final_total)
 
 
 
