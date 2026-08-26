@@ -44,10 +44,10 @@ def xu_ly_danh_sach_dat_san(booking_requests):
             court = p["court"]
             hours = p["hours"]
             voucher = p.get("voucher")
-            options = {
-                k : v
-                for k,v in p.items()
-                if k not in ["court","hours","voucher"]
+            options = { #gom tat ca cac thanh phan con lai vao options
+                k : v # in key : value
+                for k,v in p.items() #lay tu p (booking_requests)
+                if k not in ["court","hours","voucher"] #neu k khong phai la court,hours,voucher
             }
             tong = tinh_tien_dat_san(court,hours,voucher,**options)
             total_revenue += tong
