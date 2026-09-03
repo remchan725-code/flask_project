@@ -12,6 +12,8 @@ class MainWindow(QMainWindow):
 
         label = QLabel("Hello", self)
         label.setFont(QFont("Arial", 20))
+        label.setGeometry(50, 50, 200, 50)  
+        label.setStyleSheet("color: blue;") 
 
 def main():
     app = QApplication(sys.argv)
