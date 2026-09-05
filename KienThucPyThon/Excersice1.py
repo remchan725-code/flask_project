@@ -47,14 +47,17 @@ from PyQt5.QtGui import QIcon,QFont
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.button1 = QPushButton("#1")
+        self.setGeometry(300,300,300,300)#vi tri,kich co cua widget
+        self.button1 = QPushButton("#1") 
         self.button2 = QPushButton("#2")
         self.button3 = QPushButton("#3")
+        #tao nut an
         self.initUI()
 
     def initUI(self):
         central_widget = QWidget()
-        self.setCentralWidget(central_widget)
+        central_widget.setStyleSheet("background-color: rgba(255, 158, 189,1)")
+        self.setCentralWidget(central_widget)#set widget lam trung tam
         
         hbox = QHBoxLayout()
         hbox.addWidget(self.button1)
@@ -71,7 +74,7 @@ class MainWindow(QMainWindow):
         # Đưa đoạn CSS vào bên trong hàm initUI
         self.setStyleSheet("""
             QPushButton {
-                font-size: 40px;
+                font-size: 50px;
                 font-family: Arial;
                 padding: 20px 40px;
                 margin: 30px;
@@ -98,7 +101,12 @@ class MainWindow(QMainWindow):
             }
 
             QPushButton#Button3:hover{
-                background-color: blue;
+                 background-image: url("cat3.jpg");
+                background-repeat: no-repeat;
+                background-position: center;
+                color : transparent;
+                border-image: url("cat3.jpg") 0 0 0 20 stretch stretch;
+                border-width: 0px;
             }
         """)
 
